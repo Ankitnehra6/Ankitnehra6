@@ -91,7 +91,14 @@ def proxy_server(webserver, port, conn, data, addr):
         s.close()
         conn.close()
         sys.exit(1)
+def _ishostAllowed(self, host):
 
+    """ Check if host is allowed to access
+        the content """
+    for wildcard in config['HOST_ALLOWED']:
+        if fnmatch.fnmatch(host, wildcard):
+            return True
+    return False
 
 if __name__ == "__main__":
     main()
