@@ -99,6 +99,20 @@ def _ishostAllowed(self, host):
         if fnmatch.fnmatch(host, wildcard):
             return True
     return False
+logging.basicConfig(level = logging.DEBUG,
+format = '[%(CurrentTime)-10s] (%(ThreadName)-10s) %(message)s',)
+def log(self, log_level, client, msg):
 
+    """ Log the messages to appropriate place """
+    LoggerDict = {
+       'CurrentTime' : strftime("%a, %d %b %Y %X", localtime()),
+       'ThreadName' : threading.currentThread().getName()
+    }
+    if client == -1: # Main Thread
+        formatedMSG = msg
+    else: # Child threads or Request Threads
+        formatedMSG = '{0}:{1} {2}'.format(client[0], client[1], msg)
+    logging.debug('%s', utils.colorizeLog(config['COLORED_LOGGING'],
+    log_level, formatedMSG), extra=LoggerDict)
 if __name__ == "__main__":
     main()
