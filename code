@@ -1,118 +1,136 @@
-import socket, sys, _thread, traceback, ssl
-
-
-def main():
-    global listen_port, buffer_size, max_conn
-    try:
-        listen_port = int(input("Enter a listening port: "))
-    except KeyboardInterrupt:
-        sys.exit(0)
-
-    max_conn = 10000
-    buffer_size = 10000
-    try:
-        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        s.bind(("", listen_port))
-        s.listen(max_conn)
-        print("[*] Intializing socket. Done.")
-        print("[*] Socket binded successfully...")
-        print("[*] Server started successfully [{}]".format(listen_port))
-    except Exception as e:
-        print(e)
-        sys.exit(2)
-
-    while True:
-        try:
-            conn, addr = s.accept()
-            data = conn.recv(buffer_size)
-            _thread.start_new_thread(conn_string, (conn, data, addr))
-        except KeyboardInterrupt:
-            s.close()
-            print("\n[*] Shutting down...")
-            sys.exit(1)
-    s.close()
-
-
-def conn_string(conn, data, addr):
-    try:
-        print(addr)
-        first_line = data.decode('latin-1').split("\n")[0]
-        print(first_line)
-        url = first_line.split(" ")[1]
-
-        http_pos = url.find("://")
-        if http_pos == -1:
-            temp = url
-        else:
-            temp = url[(http_pos + 3):]
-
-        port_pos = temp.find(":")
-        webserver_pos = temp.find("/")
-        if webserver_pos == -1:
-            webserver_pos = len(temp)
-        webserver = ""
-        port = -1
-        if port_pos == -1 or webserver_pos < port_pos:
-            port = 80
-            webserver = temp[:webserver_pos]
-        else:
-            port = int(temp[(port_pos + 1):][:webserver_pos - port_pos - 1])
-            webserver = temp[:port_pos]
-
-        print(webserver)
-        proxy_server(webserver, port, conn, data, addr)
-    except Exception as e:
-        print(e)
-        traceback.print_exc()
-
-
-def proxy_server(webserver, port, conn, data, addr):
-    print("{} {} {} {}".format(webserver, port, conn, addr))
-    try:
-        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.connect((webserver, port))
-        s.send(data)
-        while 1:
-            reply = s.recv(buffer_size)
-
-            if len(reply) > 0:
-                conn.sendall(reply)
-                print("[*] Request sent: {} > {}".format(addr[0], webserver))
-            else:
-                break
-
-        s.close()
-        conn.close()
-
-    except Exception as e:
-        print(e)
-        traceback.print_exc()
-        s.close()
-        conn.close()
-        sys.exit(1)
-def _ishostAllowed(self, host):
-
-    """ Check if host is allowed to access
-        the content """
-    for wildcard in config['HOST_ALLOWED']:
-        if fnmatch.fnmatch(host, wildcard):
-            return True
-    return False
-logging.basicConfig(level = logging.DEBUG,
-format = '[%(CurrentTime)-10s] (%(ThreadName)-10s) %(message)s',)
-def log(self, log_level, client, msg):
-
-    """ Log the messages to appropriate place """
-    LoggerDict = {
-       'CurrentTime' : strftime("%a, %d %b %Y %X", localtime()),
-       'ThreadName' : threading.currentThread().getName()
-    }
-    if client == -1: # Main Thread
-        formatedMSG = msg
-    else: # Child threads or Request Threads
-        formatedMSG = '{0}:{1} {2}'.format(client[0], client[1], msg)
-    logging.debug('%s', utils.colorizeLog(config['COLORED_LOGGING'],
-    log_level, formatedMSG), extra=LoggerDict)
-if __name__ == "__main__":
-    main()
+import os
+import heapq
+class BinaryTreeNode:
+    def __init__(self,value,freq):
+        self.value=value
+        self.freq=freq
+        self.left=None
+        self.right=None
+    def __lt__(self,other):
+        return self.freq<other.freq
+    def __eq__(self,other):
+        return self.freq==other.freq
+    
+class HuffmanCoding:
+    
+    def __init__(self,path):
+        self.path=path
+        self.__heap=[]
+        self.__codes={}
+        self.__reverseCodes={}
+        
+    def __make_frequency_dict(self,text):
+        freq_dict={}
+        for char in text:
+            if char not in freq_dict:
+                freq_dict[char]=0
+            freq_dict[char]+=1
+        return freq_dict
+    def __buildHeap(self,freq_dict):
+        for key in freq_dict:
+            frequency=freq_dict[key]
+            binary_tree_node=BinaryTreeNode(key,frequency)
+            heapq.heappush(self.__heap,binary_tree_node)
+    def __buildTree(self):
+        while(len(self.__heap)>1):
+            binary_tree_node_1=heapq.heappop(self.__heap)
+            binary_tree_node_2=heapq.heappop(self.__heap)
+            freq_sum=binary_tree_node_1.freq+binary_tree_node_2.freq
+            newNode=BinaryTreeNode(None,freq_sum)
+            newNode.left=binary_tree_node_1
+            newNode.right=binary_tree_node_2
+            heapq.heappush(self.__heap,newNode)
+        return
+    def __buildCodesHelper(self,root,curr_bits):
+        if root is None:
+            return 
+        if root.value is not None:
+            self.__codes[root.value]=curr_bits
+            self.__reverseCodes[curr_bits]=root.value
+            return
+        self.__buildCodesHelper(root.left,curr_bits+"0")
+        self.__buildCodesHelper(root.right,curr_bits+"1")
+    def __buildCodes(self):
+        root=heapq.heappop(self.__heap)
+        self.__buildCodesHelper(root,"")
+    def __getEncodedText(self,text):
+        encoded_text=""
+        for char in text:
+            encoded_text+=self.__codes[char]
+        return encoded_text
+    def __getPaddedEncodedText(self,encoded_text):
+        padded_amount=8-(len(encoded_text)%8)
+        
+        for i in range(padded_amount):
+            encoded_text+='0'
+        padded_info="{0:08b}".format(padded_amount)
+        encoded_text=padded_info+encoded_text
+        return encoded_text
+    def __getBytesArray(self,padded_encoded_text):
+        array=[]
+        for i in range(0,len(padded_encoded_text),8):
+            byte=padded_encoded_text[i:i+8]
+            array.append(int(byte,2))
+        return array
+        
+    def compress(self):
+        file_name,file_extension=os.path.splitext(self.path)
+        output_path=file_name + ".bin"
+        with open(self.path,'r+') as file,open(output_path,'wb')as output:
+            #make frequency dictionary using the text
+            text=file.read()
+            text=text.rstrip()
+            freq_dict=self.__make_frequency_dict(text)
+            #construct the heap from the frequency_dict
+            self.__buildHeap(freq_dict)
+        #construct the binary tree from the heap
+            self.__buildTree()
+            self.__buildCodes()
+        #creating the encoded text using the codes
+            encoded_text=self.__getEncodedText(text)
+        #put this encoded text into the binary file
+            padded_encoded_text=self.__getPaddedEncodedText(encoded_text)
+            bytes_array=self.__getBytesArray(padded_encoded_text)
+        #return the binary file as output
+            final_bytes=bytes(bytes_array)
+            output.write(final_bytes)
+        print('Compressed')
+        return output_path
+    def __removePadding(self,text):
+        padded_info=text[:8]
+        extra_padding=int(padded_info,2)
+        text=text[8:]
+        text_after_padding_removed=text[:-1*extra_padding]
+        return text_after_padding_removed
+    def __decodeText(self,text):
+        decoded_text=""
+        current_bits=""
+                
+        for bit in text:
+            current_bits+=bit
+            if current_bits in self.__reverseCodes:
+                character=self.__reverseCodes[current_bits]
+                decoded_text+=character
+                current_bits=""
+                
+        return decoded_text
+        
+    def decompress(self,input_path):
+        filename,file_extension=os.path.splitext(self.path)
+        output_path=filename + "_decompressed" + ".txt"
+        with open(input_path,'rb') as file,open(output_path,'w')as output:
+            bit_string=""
+            byte=file.read(1)
+            while byte:
+                byte=ord(byte)
+                bits=bin(byte)[2:].rjust(8,'0')
+                bit_string+=bits
+                byte=file.read(1)
+            actual_text=self.__removePadding(bit_string)
+            decompressed_text=self.__decodeText(actual_text)
+            output.write(decompressed_text)
+        return
+ path="Downloads//sample.txt"
+h= HuffmanCoding(path)
+output_path = h.compress()
+h.decompress(output_path)
