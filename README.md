@@ -229,7 +229,6 @@ conclusion you reach.
 - **National Runner-Up, Smart India Hackathon** — architecting scalable real-world solutions.
 - **523 DSA problems solved** on GeeksforGeeks, institute rank #4.
 - **Certification of Excellence in Data Structures & Algorithms**, Coding Ninjas.
-- **Led cross-functional intern teams** at Artemis Semiconductor.
 
 ---
 
