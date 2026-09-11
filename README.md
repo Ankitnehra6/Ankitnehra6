@@ -6,11 +6,15 @@
 
 **Backend · Distributed Systems · AI Infrastructure**
 
-<a href="https://www.geeksforgeeks.org/profile/ankitnehra20cse">
-  <img src="https://img.shields.io/badge/GeeksforGeeks-523_solved_·_score_1800-2F8D46?style=for-the-badge&logo=geeksforgeeks&logoColor=white" alt="GeeksforGeeks">
+📍 Bengaluru, India
+
+<a href="https://www.linkedin.com/in/ankit-nehra-235a9420a">
+  <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn">
 </a>
-<img src="https://img.shields.io/badge/Institute_Rank-%234-F7B500?style=for-the-badge&logo=codeforces&logoColor=white" alt="Institute rank 4">
-<a href="mailto:ankit.nehra.20cse@bmu.edu.in">
+<a href="https://www.geeksforgeeks.org/profile/ankitnehra20cse">
+  <img src="https://img.shields.io/badge/GeeksforGeeks-523_solved_·_1800-2F8D46?style=for-the-badge&logo=geeksforgeeks&logoColor=white" alt="GeeksforGeeks">
+</a>
+<a href="mailto:nehra2042@gmail.com">
   <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email">
 </a>
 
@@ -22,24 +26,53 @@
 
 ### Stack
 
+**Languages**
+
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)
+![C](https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=c&logoColor=black)
 ![Go](https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Bash](https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnubash&logoColor=white)
 ![SQL](https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=postgresql&logoColor=white)
 
-![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+**Systems & networking**
+
+![QUIC](https://img.shields.io/badge/QUIC-8E44AD?style=for-the-badge)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+![OpenWrt](https://img.shields.io/badge/OpenWrt-00B5E2?style=for-the-badge&logo=openwrt&logoColor=white)
+![Wireshark](https://img.shields.io/badge/Wireshark-1679A7?style=for-the-badge&logo=wireshark&logoColor=white)
 ![gRPC](https://img.shields.io/badge/gRPC-244C5A?style=for-the-badge&logo=google&logoColor=white)
 ![Netty](https://img.shields.io/badge/Netty-4A90D9?style=for-the-badge&logo=apache&logoColor=white)
 
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
-![Kafka](https://img.shields.io/badge/Apache_Kafka-231F20?style=for-the-badge&logo=apachekafka&logoColor=white)
-![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
+**Backend**
 
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![Microservices](https://img.shields.io/badge/Microservices-4B32C3?style=for-the-badge)
+![REST](https://img.shields.io/badge/REST_APIs-02569B?style=for-the-badge)
+
+**Data**
+
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
+![Kafka](https://img.shields.io/badge/Apache_Kafka-231F20?style=for-the-badge&logo=apachekafka&logoColor=white)
+
+**AI / ML**
+
+![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
 ![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)
 ![ONNX](https://img.shields.io/badge/ONNX-005CED?style=for-the-badge&logo=onnx&logoColor=white)
+
+**Cloud & tooling**
+
+![AWS](https://img.shields.io/badge/AWS_EC2_·_S3-232F3E?style=for-the-badge)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/CI%2FCD-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
 
 </div>
 
@@ -48,9 +81,31 @@
 I work on the parts of a system where the hard problem is staying correct while things fail —
 consensus, ledgers, schedulers, indexes.
 
-**Every number below was produced by a benchmark that ships in the repo it links to, on my own
-machine, with the command to reproduce it.** Where a result turned out to be noise or an
-overclaim, it says so.
+**Every number in the projects below was produced by a benchmark that ships in the repo it links
+to, on my own machine, with the command to reproduce it.** Where a result turned out to be noise
+or an overclaim, it says so.
+
+---
+
+## 💼 Experience
+
+### Software Developer — Starten Systems India Pvt. Ltd. · Bengaluru
+`Aug 2024 – Present` · previously Software Developer Intern, `Mar – Jun 2024`
+
+Transport-layer engineering on QUIC, in production, for enterprise clients.
+
+- **Multi-path QUIC transport layer** — architected for high throughput, scaling system capacity
+  by **566%** and cutting packet loss by **40%**.
+- **Automated session recovery** — holding **99.9% uptime** across client deployments.
+- **EAP-TLS authentication via FreeRADIUS** — managing identities for **10,000+ devices**, zero
+  breaches.
+- **Segmentation faults in the QUIC transport layer** — root-caused through deep debugging,
+  improving stability by **30%**.
+- As an intern: QUIC client/server applications cutting end-to-end latency by **20%**, and
+  ML-based log-analysis pipelines that improved error-detection efficiency by **50%**.
+
+*QUIC is the protocol underneath HTTP/3. Multi-path means using several network paths at once —
+Wi-Fi and cellular together — and keeping the connection alive when one drops.*
 
 ---
 
@@ -155,14 +210,25 @@ conclusion you reach.
 
 ---
 
+## 🏆 Achievements
+
+- **National Runner-Up, Smart India Hackathon** — architecting scalable real-world solutions.
+- **523 DSA problems solved** on GeeksforGeeks, institute rank #4.
+- **Certification of Excellence in Data Structures & Algorithms**, Coding Ninjas.
+- **Led cross-functional intern teams** at Artemis Semiconductor to 100% on-time delivery.
+
+---
+
 ## 🎓 Education
 
-**B.Tech, Computer Science** — BML Munjal University (BMU), Gurgaon · 2024
+**B.Tech, Computer Science Engineering** — BML Munjal University, Haryana · 2020–2024
+**CGPA 8.57** · Dean's List 2022 & 2023
+*Coursework: Distributed Systems, Advanced Algorithms, Computer Networks, Cloud Computing*
 
 ---
 
 <div align="center">
 
-📫 **ankit.nehra.20cse@bmu.edu.in**
+📫 **nehra2042@gmail.com** · 📱 +91-8569827060 · [LinkedIn](https://www.linkedin.com/in/ankit-nehra-235a9420a)
 
 </div>
