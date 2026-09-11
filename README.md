@@ -1,32 +1,74 @@
+<div align="center">
+
 # Ankit Nehra
 
-**Software Developer at Starten Systems** · 2.5 years · Backend · Distributed Systems · AI Infrastructure
+**Software Developer @ Starten Systems** · since Aug 2024
 
-I work on the parts of a system where the hard problem is staying correct while things fail —
-consensus, ledgers, schedulers, indexes. The repositories below are not tutorials or demos: each
-one is benchmarked, tested against its own failure modes, and documents the decisions behind it.
+**Backend · Distributed Systems · AI Infrastructure**
 
-**Every number on this page was produced by a benchmark that ships in the repo it links to,
-on my own machine, with the command to reproduce it.** Where a result turned out to be noise or
-an overclaim, it says so.
+<a href="https://www.geeksforgeeks.org/profile/ankitnehra20cse">
+  <img src="https://img.shields.io/badge/GeeksforGeeks-523_solved_·_score_1800-2F8D46?style=for-the-badge&logo=geeksforgeeks&logoColor=white" alt="GeeksforGeeks">
+</a>
+<img src="https://img.shields.io/badge/Institute_Rank-%234-F7B500?style=for-the-badge&logo=codeforces&logoColor=white" alt="Institute rank 4">
+<a href="mailto:ankit.nehra.20cse@bmu.edu.in">
+  <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email">
+</a>
+
+</div>
 
 ---
 
-## Distributed systems & backend
+<div align="center">
 
-### [raft-kv](https://github.com/Ankitnehra6/raft-kv) · Java
-Raft consensus and a replicated key-value store, built to be deterministically simulation-tested.
+### Stack
+
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Go](https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=postgresql&logoColor=white)
+
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![gRPC](https://img.shields.io/badge/gRPC-244C5A?style=for-the-badge&logo=google&logoColor=white)
+![Netty](https://img.shields.io/badge/Netty-4A90D9?style=for-the-badge&logo=apache&logoColor=white)
+
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+![Kafka](https://img.shields.io/badge/Apache_Kafka-231F20?style=for-the-badge&logo=apachekafka&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
+
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)
+![ONNX](https://img.shields.io/badge/ONNX-005CED?style=for-the-badge&logo=onnx&logoColor=white)
+
+</div>
+
+---
+
+I work on the parts of a system where the hard problem is staying correct while things fail —
+consensus, ledgers, schedulers, indexes.
+
+**Every number below was produced by a benchmark that ships in the repo it links to, on my own
+machine, with the command to reproduce it.** Where a result turned out to be noise or an
+overclaim, it says so.
+
+---
+
+## 🔧 Distributed systems & backend
+
+### [raft-kv](https://github.com/Ankitnehra6/raft-kv) · `Java`
+> Raft consensus and a replicated key-value store, built to be deterministically simulation-tested.
 
 A 5-node cluster with network partitions, packet loss and crashes runs **single-threaded inside a
 unit test**. **165 tests in about six seconds — 157 of them in under one** — with no
-`Thread.sleep` anywhere, because the clock and the network are injected rather than real. That is
-what makes consensus code genuinely testable. Client histories recorded under partitions,
-crashes and 5% packet loss are machine-verified **linearizable** across 5 seeds. Found and
-documented a real liveness bug: a server outside the configuration campaigning with ever-higher
-terms, forcing the legitimate leader to abdicate on every attempt.
+`Thread.sleep` anywhere, because the clock and the network are injected rather than real. Client
+histories recorded under partitions, crashes and 5% packet loss are machine-verified
+**linearizable** across 5 seeds. Found and documented a real liveness bug: a server outside the
+configuration campaigning with ever-higher terms, forcing the legitimate leader to abdicate on
+every attempt.
 
-### [event-ledger](https://github.com/Ankitnehra6/event-ledger) · Java 25 · Spring Boot 4 · Kafka · Postgres
-A double-entry ledger where the invariants are enforced by the database, not just the application.
+### [event-ledger](https://github.com/Ankitnehra6/event-ledger) · `Java 25` `Spring Boot 4` `Kafka` `Postgres`
+> A double-entry ledger where the invariants are enforced by the database, not just the application.
 
 A deferred constraint trigger rejects an unbalanced entry at commit time, and the ledger tables
 refuse `UPDATE` and `DELETE` outright, so a correction has to be a new entry. Transactional
@@ -35,16 +77,16 @@ outbox, idempotency keys with request fingerprints, saga orchestration with comp
 consumers killed throughout — ends with a **signed total of 0** and every saga terminal. 120
 opposing concurrent transfers, **zero deadlocks**.
 
-### [ratelimit-gateway](https://github.com/Ankitnehra6/ratelimit-gateway) · Go · Redis
-Three rate-limiting algorithms as atomic Redis Lua scripts, behind one API gateway.
+### [ratelimit-gateway](https://github.com/Ankitnehra6/ratelimit-gateway) · `Go` `Redis`
+> Three rate-limiting algorithms as atomic Redis Lua scripts, behind one API gateway.
 
 **2,000 rps sustained at p99 1.56 ms**, zero failures across 60,000 requests. Enforcement is
 exact: a 100/s tier with 150 burst, driven at 500 rps for 10 seconds, admitted **precisely 1,150**
 requests — repeatable across runs. Token bucket, sliding window log and fixed window implemented
 side by side so the cost difference between them is measured rather than recited.
 
-### [llm-gateway](https://github.com/Ankitnehra6/llm-gateway) · Java 25 · Spring Boot 4
-Multi-provider LLM gateway: failover, per-upstream circuit breaking, per-tenant token budgets.
+### [llm-gateway](https://github.com/Ankitnehra6/llm-gateway) · `Java 25` `Spring Boot 4`
+> Multi-provider LLM gateway: failover, per-upstream circuit breaking, per-tenant token budgets.
 
 Semantic caching via Redis vector KNN measured at a **90% hit rate** — answering **10.9× faster**
 on a hit (4.50 ms vs 49.08 ms p50) and saving 5,056 tokens over 200 requests. Virtual threads for
@@ -52,28 +94,26 @@ the provider fan-out, append-only usage ledger, SSE streaming including replay o
 
 ---
 
-## AI infrastructure
+## 🧠 AI infrastructure
 
-### [vector-engine](https://github.com/Ankitnehra6/vector-engine) · Java · zero runtime dependencies
-HNSW vector search written from scratch — the layered graph, the neighbour-selection heuristic,
-SIMD distance kernels, filtered search with an exact fallback.
+### [vector-engine](https://github.com/Ankitnehra6/vector-engine) · `Java` · zero runtime dependencies
+> HNSW vector search written from scratch — layered graph, neighbour-selection heuristic, SIMD kernels.
 
 **20× faster than exact search at 99.4% recall** (18,050 QPS vs 895, 100k × 128 dims). The
 Algorithm 4 selection heuristic measured at **0.8576 vs 0.1813 recall** against the naive
 nearest-m rule — a 4.7× difference from one rule. SIMD kernels **2.46×** over scalar. Ships a
 visualiser that renders the real graph and replays a real search descent.
 
-### [inference-server](https://github.com/Ankitnehra6/inference-server) · Python
-The scheduler, not the model: continuous batching, paged KV cache accounting, preemption under
-memory pressure, chunked prefill.
+### [inference-server](https://github.com/Ankitnehra6/inference-server) · `Python`
+> The scheduler, not the model: continuous batching, paged KV cache, preemption, chunked prefill.
 
 **1.8× throughput and 5× lower p99 TTFT** over a *fair* static baseline — and the mechanism is
 visible in the mean batch size, **40.7 vs 10.6**. It runs fuller, not faster. An earlier version
 of that benchmark reported 5× by sealing the static batch after one prefill step; it was a
 strawman and was thrown away. Benchmarks run on a virtual clock, so they are exact and instant.
 
-### [rag-eval](https://github.com/Ankitnehra6/rag-eval) · Python
-A RAG **evaluation harness** with a retrieval pipeline attached — not the other way round.
+### [rag-eval](https://github.com/Ankitnehra6/rag-eval) · `Python`
+> A RAG **evaluation harness** with a retrieval pipeline attached — not the other way round.
 
 Every number carries a bootstrap confidence interval and every comparison is a paired
 significance test against a named baseline. On BEIR SciFact, hybrid retrieval is the one clear
@@ -84,28 +124,23 @@ conclusion you reach.
 
 ---
 
-## Problem solving
+## 📊 Problem solving
 
-[**GeeksforGeeks**](https://www.geeksforgeeks.org/profile/ankitnehra20cse) — `ankitnehra20cse`
+<div align="center">
 
-| | |
-|---|---|
-| Problems solved | **523** |
-| Coding score | **1800** |
-| Institute rank | **#4** at BML Munjal University (BMU) Gurgaon |
-| Consistency | 67 problems-of-the-day · longest streak **24 days** · 391 submissions in 2026 |
+| Problems solved | Coding score | Institute rank | Longest streak |
+|:---:|:---:|:---:|:---:|
+| **523** | **1800** | **#4** | **24 days** |
+
+</div>
 
 **361 of those 523 are Medium or Hard** — Hard 51 · Medium 310 · Easy 141 · Basic 21.
+67 problems-of-the-day solved, 391 submissions in 2026.
+[→ GeeksforGeeks profile](https://www.geeksforgeeks.org/profile/ankitnehra20cse)
 
 ---
 
-## Education
-
-**B.Tech, Computer Science** — BML Munjal University (BMU), Gurgaon · 2024
-
----
-
-## What these repositories do that most don't
+## ✅ What these repositories do that most don't
 
 - **Report the null results.** Most of `rag-eval`'s findings are "no significant difference".
   That is the finding, and it is stated rather than buried.
@@ -120,14 +155,14 @@ conclusion you reach.
 
 ---
 
-## Stack
+## 🎓 Education
 
-**Languages** Java 25 · Go · Python 3.12 · SQL
-**Backend** Spring Boot 4 · gRPC · Netty · FastAPI · virtual threads (Loom)
-**Data & messaging** PostgreSQL · Kafka · Redis
-**Infrastructure** Docker · GitHub Actions · Testcontainers · Prometheus
-**Testing** JUnit 5 · pytest · deterministic simulation · fault injection · linearizability checking
+**B.Tech, Computer Science** — BML Munjal University (BMU), Gurgaon · 2024
 
 ---
 
+<div align="center">
+
 📫 **ankit.nehra.20cse@bmu.edu.in**
+
+</div>
