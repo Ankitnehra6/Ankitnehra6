@@ -58,6 +58,7 @@
 ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
 ![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
 ![Kafka](https://img.shields.io/badge/Apache_Kafka-231F20?style=for-the-badge&logo=apachekafka&logoColor=white)
+![NATS](https://img.shields.io/badge/NATS_JetStream-27AAE1?style=for-the-badge&logo=natsdotio&logoColor=white)
 
 **AI / ML**
 
@@ -91,7 +92,18 @@ or an overclaim, it says so.
 ### Software Developer — Starten Systems India Pvt. Ltd. · Bengaluru
 `Aug 2024 – Present` · previously Software Developer Intern, `Mar – Jun 2024`
 
-Transport-layer engineering on QUIC, in production, for enterprise clients.
+#### Product backend — serving millions of users
+
+- **Session manager** — session objects held in Redis so any application instance can serve any
+  request, instead of pinning a user to whichever box first saw them.
+- **An in-memory cache in front of Redis** — hot sessions resolve locally, without a network hop
+  per lookup. The interesting part is coherence: when a session changes, the copies held on every
+  other instance have to be invalidated, or a user sees stale state depending on which box
+  happens to answer.
+- **Pub/sub on NATS JetStream** — event distribution between services, with persistence, so a
+  consumer that was down can pick up what it missed rather than losing it.
+
+#### Transport layer — QUIC, in production, for enterprise clients
 
 - **Multi-path QUIC transport** — a transport layer carrying one connection across several
   network paths at once, raising available throughput and surviving the loss of any single path.
@@ -101,8 +113,10 @@ Transport-layer engineering on QUIC, in production, for enterprise clients.
   **10,000+ devices**.
 - **Transport-layer debugging** — root-caused segmentation faults inside the QUIC stack, in C,
   under concurrency.
-- **As an intern** — QUIC client/server applications, and ML-based log-analysis pipelines for
-  automated error detection.
+
+#### As an intern
+QUIC client/server applications, and ML-based log-analysis pipelines for automated error
+detection.
 
 *QUIC is the protocol underneath HTTP/3. Multi-path means using several network paths at once —
 Wi-Fi and cellular together — and keeping the connection alive when one drops.*
