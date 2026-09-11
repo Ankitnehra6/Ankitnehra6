@@ -93,15 +93,16 @@ or an overclaim, it says so.
 
 Transport-layer engineering on QUIC, in production, for enterprise clients.
 
-- **Multi-path QUIC transport layer** — architected for high throughput, scaling system capacity
-  by **566%** and cutting packet loss by **40%**.
-- **Automated session recovery** — holding **99.9% uptime** across client deployments.
-- **EAP-TLS authentication via FreeRADIUS** — managing identities for **10,000+ devices**, zero
-  breaches.
-- **Segmentation faults in the QUIC transport layer** — root-caused through deep debugging,
-  improving stability by **30%**.
-- As an intern: QUIC client/server applications cutting end-to-end latency by **20%**, and
-  ML-based log-analysis pipelines that improved error-detection efficiency by **50%**.
+- **Multi-path QUIC transport** — a transport layer carrying one connection across several
+  network paths at once, raising available throughput and surviving the loss of any single path.
+- **Session recovery** — automatic reconnection and state restoration, so a dropped link
+  interrupts a session rather than ending it.
+- **EAP-TLS authentication via FreeRADIUS** — certificate-based network access for a fleet of
+  **10,000+ devices**.
+- **Transport-layer debugging** — root-caused segmentation faults inside the QUIC stack, in C,
+  under concurrency.
+- **As an intern** — QUIC client/server applications, and ML-based log-analysis pipelines for
+  automated error detection.
 
 *QUIC is the protocol underneath HTTP/3. Multi-path means using several network paths at once —
 Wi-Fi and cellular together — and keeping the connection alive when one drops.*
