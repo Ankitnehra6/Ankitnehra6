@@ -227,6 +227,7 @@ conclusion you reach.
 ## 🏆 Achievements
 
 - **National Runner-Up, Smart India Hackathon** — architecting scalable real-world solutions.
+- **Finalist** — Bessemer Tech Catalyst, HackCulture, and the MoveInSync hackathon.
 - **523 DSA problems solved** on GeeksforGeeks, institute rank #4.
 - **Certification of Excellence in Data Structures & Algorithms**, Coding Ninjas.
 
