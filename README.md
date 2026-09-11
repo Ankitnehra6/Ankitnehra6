@@ -84,6 +84,27 @@ conclusion you reach.
 
 ---
 
+## Problem solving
+
+[**GeeksforGeeks**](https://www.geeksforgeeks.org/profile/ankitnehra20cse) — `ankitnehra20cse`
+
+| | |
+|---|---|
+| Problems solved | **523** |
+| Coding score | **1800** |
+| Institute rank | **#4** at BML Munjal University (BMU) Gurgaon |
+| Consistency | 67 problems-of-the-day · longest streak **24 days** · 391 submissions in 2026 |
+
+**361 of those 523 are Medium or Hard** — Hard 51 · Medium 310 · Easy 141 · Basic 21.
+
+---
+
+## Education
+
+**B.Tech, Computer Science** — BML Munjal University (BMU), Gurgaon · 2024
+
+---
+
 ## What these repositories do that most don't
 
 - **Report the null results.** Most of `rag-eval`'s findings are "no significant difference".
