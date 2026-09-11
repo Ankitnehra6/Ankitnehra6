@@ -109,8 +109,6 @@ or an overclaim, it says so.
   network paths at once, raising available throughput and surviving the loss of any single path.
 - **Session recovery** — automatic reconnection and state restoration, so a dropped link
   interrupts a session rather than ending it.
-- **EAP-TLS authentication via FreeRADIUS** — certificate-based network access for a fleet of
-  **10,000+ devices**.
 - **Transport-layer debugging** — root-caused segmentation faults inside the QUIC stack, in C,
   under concurrency.
 
